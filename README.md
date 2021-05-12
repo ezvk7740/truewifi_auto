@@ -1,6 +1,6 @@
-#TrueWifi auto-connector
+# TrueWifi auto-connector
 
-### Abusing free internet offered by TrueCorp
+work in progress
 
 ## Setup
 

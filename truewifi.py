@@ -16,6 +16,7 @@ username, password = f.readlines()
 username = username.strip().split(" ")[1]
 password = password.strip().split(" ")[1]
 
+element_for_ads="close"
 element_for_username="username"
 element_for_password="password"
 element_for_submit="btnsubmit"
@@ -26,15 +27,22 @@ wait = WebDriverWait(browser, 5)
 
 try:
     time.sleep(3)
+    try:
+        adsbutton = browser.find_element_by_class_name(element_for_ads)
+        adsbutton.click()
+    except:
+        print("no ads")
     username_element = browser.find_element_by_name(element_for_username)
     username_element.send_keys(username)
     password_element = browser.find_element_by_name(element_for_password)
     password_element.send_keys(password)
+    time.sleep(1)
     signinbutton = browser.find_element_by_id(element_for_submit)
     signinbutton.click()
     time.sleep(3)
     browser.quit()
-except:
+except Exception as e:
+    print(e)
     print("Some error occured :(")
     time.sleep(1)
     browser.quit()

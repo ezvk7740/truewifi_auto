@@ -1,5 +1,6 @@
 #!/bin/bash
 
+USER=$USER
 while true
       do
 	  curl -Is http://www.google.com | head -1 | grep 200
@@ -9,7 +10,7 @@ while true
 	      sudo -H -u $USER bash -c 'export PATH=$PATH:$PWD && python3 truewifi.py'
 	      echo networking service restarted
 	  else
-	      echo online
+	      echo -ne online\\r
 	  fi
 	  sleep 1
 done
